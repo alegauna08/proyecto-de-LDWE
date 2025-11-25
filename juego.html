@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fútbol Grid (Tic-Tac-Toe)</title>
+    <link rel="stylesheet" href="juego.css">
+</head>
+<body>
+    <header>
+        <h1>Fútbol Grid (Tic-Tac-Toe)</h1>
+        <div id="turno-indicador">Turno: Jugador 1 (X)</div>
+    </header>
+    <div class="container">
+        <div id="grid-header">
+            <div class="dummy"></div>
+            <div class="col-criteria" data-col-id="0"></div>
+            <div class="col-criteria" data-col-id="1"></div>
+            <div class="col-criteria" data-col-id="2"></div>
+        </div>
+        <div id="game-grid">
+            <div class="row-and-criteria">
+                <div class="row-criteria" data-row-id="0"></div>
+                <div class="cell" data-row="0" data-col="0"></div>
+                <div class="cell" data-row="0" data-col="1"></div>
+                <div class="cell" data-row="0" data-col="2"></div>
+            </div>
+            <div class="row-and-criteria">
+                <div class="row-criteria" data-row-id="1"></div>
+                <div class="cell" data-row="1" data-col="0"></div>
+                <div class="cell" data-row="1" data-col="1"></div>
+                <div class="cell" data-row="1" data-col="2"></div>
+            </div>
+            <div class="row-and-criteria">
+                <div class="row-criteria" data-row-id="2"></div>
+                <div class="cell" data-row="2" data-col="0"></div>
+                <div class="cell" data-row="2" data-col="1"></div>
+                <div class="cell" data-row="2" data-col="2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="jugador-input" placeholder="Introduce el nombre del jugador">
+        <button id="verificar-btn">Verificar</button>
+    </div>
+    <div id="mensaje"></div>
+    <button id="reiniciar-btn" class="hidden">Reiniciar Juego</button>
+    <script src="juego.js"></script>
+</body>
+</html>

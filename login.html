@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <form id="loginForm">
+        <h1>Inicia Sesión</h1>
+        
+        <h2>Nombre de Usuario</h2>
+        <input type="text" id="nomUsu" placeholder="Ingresa tu nombre de usuario" required>
+        
+        <h2>Contraseña</h2>
+        <input type="password" id="contra" placeholder="Ingresa tu contraseña" required>
+        
+        <button type="submit" id="verificar">Verificar</button>
+
+        <div class="link">
+            <p>¿No tienes cuenta? <a href="registrar.html">Regístrate aquí</a></p>
+        </div>
+    </form>
+
+    <script>
+        const nomUsu = document.querySelector('#nomUsu');
+        const contra = document.querySelector('#contra');
+        const formulario = document.getElementById('loginForm');
+        
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Obtener valores del localStorage
+            const registrarUsu = localStorage.getItem('usuario');
+            const registrarContra = localStorage.getItem('contra');
+        
+            // Comparar valores (no objetos)
+            if (nomUsu.value === registrarUsu && contra.value === registrarContra) {
+                alert('Usuario y contraseña válidos. ¡Bienvenido ' + nomUsu.value + '!');
+                window.location.href = 'inicio.html';
+            } else if (nomUsu.value === '' || contra.value === '') {
+                alert('Por favor, completa ambos campos.');
+            } else {
+                alert('Usuario o contraseña incorrectos. Por favor, intenta de nuevo.');
+            }
+        });
+    </script>
+</body>
+</html>
