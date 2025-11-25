@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="registrar.css">
+</head>
+<body>
+    <form id="registerForm">
+        <h1>Registar Usuario</h1>
+        
+        <h2>Nombre de usuario</h2>
+        <input type="text" id="registrarUsu" placeholder="Ingresa un nombre de usuario" required>
+        
+        <h2>Contraseña</h2>
+        <input type="password" id="registrarContra" placeholder="Ingresa una contraseña" required>
+        
+        <button type="button" id="guardar">Guardar</button>
+
+        <div class="link">
+            <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+        </div>
+    </form>
+
+    <script>
+        const registrarUsu = document.querySelector('#registrarUsu');
+        const registrarContra = document.querySelector('#registrarContra');
+        
+        document.getElementById('guardar').addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            // Validar que los campos no estén vacíos
+            if (registrarUsu.value.trim() === '' || registrarContra.value.trim() === '') {
+                alert('Por favor, completa ambos campos.');
+                return;
+            }
+
+            // Validar que la contraseña tenga al menos 6 caracteres
+            if (registrarContra.value.length < 6) {
+                alert('La contraseña debe tener al menos 6 caracteres.');
+                return;
+            }
+
+            // Guardar en localStorage
+            localStorage.setItem('usuario', registrarUsu.value);
+            localStorage.setItem('contra', registrarContra.value);
+            
+            alert('¡Registro exitoso!');
+            
+            // Redirigir a login.html
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
